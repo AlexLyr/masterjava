@@ -25,12 +25,21 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _City_QNAME = new QName("http://javaops.ru", "City");
+    private final static QName _Project_QNAME = new QName("http://javaops.ru", "Project");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: ru.javaops.masterjava.xml.schema
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link User }
+     * 
+     */
+    public User createUser() {
+        return new User();
     }
 
     /**
@@ -42,11 +51,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link User }
+     * Create an instance of {@link ProjectType }
      * 
      */
-    public User createUser() {
-        return new User();
+    public ProjectType createProjectType() {
+        return new ProjectType();
+    }
+
+    /**
+     * Create an instance of {@link User.Groups }
+     * 
+     */
+    public User.Groups createUserGroups() {
+        return new User.Groups();
     }
 
     /**
@@ -66,11 +83,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Payload.Projects }
+     * 
+     */
+    public Payload.Projects createPayloadProjects() {
+        return new Payload.Projects();
+    }
+
+    /**
      * Create an instance of {@link CityType }
      * 
      */
     public CityType createCityType() {
         return new CityType();
+    }
+
+    /**
+     * Create an instance of {@link Group }
+     * 
+     */
+    public Group createGroup() {
+        return new Group();
     }
 
     /**
@@ -80,6 +113,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://javaops.ru", name = "City")
     public JAXBElement<CityType> createCity(CityType value) {
         return new JAXBElement<CityType>(_City_QNAME, CityType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ProjectType }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://javaops.ru", name = "Project")
+    public JAXBElement<ProjectType> createProject(ProjectType value) {
+        return new JAXBElement<ProjectType>(_Project_QNAME, ProjectType.class, null, value);
     }
 
 }
